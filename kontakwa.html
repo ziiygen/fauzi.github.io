@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Kontak WhatsApp Form</title>
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+      <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      <meta name="theme-color" content="#C47C97">
+   </head>
+<body>
+    <div class="container">
+        <div class="col-lg-6 col-lg-offset-3">
+            <h4>Kontak WhatsApp Form</h4>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    Silahkan kontak saya dengan mengisi data Anda berikut
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" name="name" class="form-control" placeholder="Nama Anda" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat Lengkap</label>
+                        <input type="alamat" name="alamat" class="form-control" placeholder="Alamat Anda" id="alamat">
+                    </div>
+                    <div class="form-group">
+                        <label>Nomor WhatsApp</label>
+                        <input type="text" name="phone" class="form-control" placeholder="Nomor WhatsApp" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Panggilan</label>
+                        <select name="panggilan" class="form-control" id="panggilan">
+                            <option value="">-- Panggilan Anda --</option>
+                            <option value="Bapak">Bapak</option>
+                            <option value="Ibu">Ibu</option>
+                            <option value="Mas">Mas</option>
+                            <option value="Mbak">Mbak</option>
+                            <option value="Abang">Abang</option>
+                            <option value="Kakak">Kakak</option>
+                            <option value="Adek">Adek</option>
+                            <option value="Om">Om</option>
+                            <option value="Tante">Tante</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Pesan</label>
+                        <textarea name="description" class="form-control" rows="3" placeholder="Tulis pesan Anda di sini" id="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success send">Kirim via WhatsApp</button>
+                    </div>
+ 
+                    <div id="text-info"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).on('click','.send', function(){
+    /* Inputan Formulir */
+    var input_name          = $("#name").val(),
+        input_email         = $("#email").val(),
+        input_phone         = $("#phone").val(),
+        input_panggilan     = $("#panggilan").val(),
+        input_description   = $("#description").val();
+ 
+    /* Pengaturan Whatsapp */
+    var walink      = 'https://web.whatsapp.com/send',
+        phone       = '6285251995279',
+        text        = 'Halo Ahmad Fauzi, perkenalkan ',
+        text_yes    = 'Pesan Anda berhasil terkirim.',
+        text_no     = 'Isilah formulir terlebih dahulu.';
+ 
+    /* Smartphone Support */
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        var walink = 'whatsapp://send';
+    }
+ 
+    if(input_name != "" && input_phone != "" && input_panggilan != ""){
+        /* Whatsapp URL */
+        var checkout_whatsapp = walink + '?phone=' + phone + '&text=' + text + '%0A%0A' +
+            '*Nama* : ' + input_panggilan + ' ' + input_name + '%0A' +
+            '*Email* : ' + input_email + '%0A' +
+            '*No. WA* : ' + input_phone + '%0A' +
+            '%0A' +
+            '*Pesan* : ' + input_description + '%0A' +
+            '%0A' +
+            'Dikirim via https://ziiygen.github.io';
+ 
+        /* Whatsapp Window Open */
+        window.open(checkout_whatsapp,'_blank');
+        document.getElementById("text-info").innerHTML = '<div class="alert alert-success">'+text_yes+'</div>';
+    } else {
+        document.getElementById("text-info").innerHTML = '<div class="alert alert-danger">'+text_no+'</div>';
+    }
+});
+    </script>
+</body>
+</html>
