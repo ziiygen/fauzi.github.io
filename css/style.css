@@ -1,0 +1,54 @@
+/* Ukuran Minimal di Semua Section */
+section {
+  min-height: 400px;
+}
+
+/* Background Section Biodata, Motivasi & Testimoni */
+.biodata,
+.motivasi,
+.testimoni {
+  background: linear-gradient(to right, blueviolet, indigo);
+}
+
+/* Judul Jumbotron */
+h1 {
+  color: rgb(224, 224, 224);
+}
+
+/* Judul di Semua Section */
+h2 {
+  color: #343a40;
+}
+
+/* Garis Horisontal di Semua Section */
+hr {
+  width: 320px;
+  border-top: 2px solid #b5b5b6;
+}
+
+/* Tabel Kelas Semu Ganjil */
+.table-strip tbody tr:nth-of-type(even) {
+  background-color: #f1f3f5;
+}
+
+/* Tabel Kelas Semu Genap */
+.table-strip tbody tr:nth-of-type(odd) {
+  background-color: white;
+}
+
+/* Margin Judul Progress Bar Kompetensi */
+.kompetensi p {
+  margin-bottom: 1px;
+  font-weight: 400;
+}
+
+/* Warna Font Hyperlink */
+.kontak a {
+  text-decoration: none;
+  color: blueviolet;
+}
+
+/* Warna Hover Font Hyperlink */
+.kontak a:hover {
+  color: indigo;
+}
